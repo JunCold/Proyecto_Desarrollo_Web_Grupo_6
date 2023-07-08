@@ -4,15 +4,58 @@
       xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        <title>TODO supply a title</title>
+        <!-- <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>-->
+        <!--<script th:src="@{/webjars/jquery/jquery.min.js}"></script>-->
+        <!--<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>-->
+        <!--<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>-->
         
-        
+        <title>BioTec</title>
+
     </head>
     <body>
-        
+        <!-- Menu lateral -->
+        <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <!-- Logo de la marca -->
+                <a class="navbar-brand" href="#">
+                    <!-- Colocar aqu'i la direcci'on de la imagen en la que se encuentra dentro de los paquetes -->
+                </a>
+                <div class="navbar-start">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú Principal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-inicio active" aria-current="page" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-productos" href="#">Productos</a>
+                            </li>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-inventario" href="#">Inventario</a>
+                            </li>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-ventas" href="#">Ventas</a>
+                            </li>
+                            <!-- Botón "Sign Out" -->
+                            <li class="nav-item">
+                                <button class="nav-link btn btn-link" onclick="signOut()">Log Out</button>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
     </body>
 </html>
