@@ -20,6 +20,8 @@ public class ProductoController {
 
     @Autowired
     ProductoService productoService;
+    
+    
 
     @GetMapping("/listado")
     public String inicio(Model model) {
@@ -38,14 +40,13 @@ public class ProductoController {
     private FirebaseStorageServiceImpl firebaseStorageService;
 
     @PostMapping("/guardar")
-    public String productoGuardar(Producto producto) {
+    public String productoGuardar(Producto producto,
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
             productoService.save(producto);
             producto.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "producto",
-                            producto.getCodigoProducto()));
+                    firebaseStorageService.cargaImagen(imagenFile, "producto", producto.getCodigoProducto()));
+                   
         }
         productoService.save(producto);
         return "redirect:/producto/listado";
