@@ -12,17 +12,16 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Autowired
     ProductoDao productoDao;
+
     @Override
-    
-    public List<Producto> getProducto(String codigo) {
-       List <Producto> productos=productoDao.findAll();
-           for (int i = 0; i < productos.size(); i++) {
-            if(productos.get(i).getCodigoProducto()!=codigo){
-                productos.remove(i);
-            }
-            
+    @Transactional(readOnly = true)
+    public List<Producto> getProductos(boolean activos) {
+        List<Producto> productos = productoDao.findAll();
+        if (activos) {
+            productos.removeIf(x -> !x.isActivo());
         }
-           return productos;
+
+        return productos;
     }
 
     @Override

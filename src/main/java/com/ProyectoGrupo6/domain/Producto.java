@@ -16,15 +16,19 @@ public class Producto implements Serializable {
     private String codigoProducto;
     private String nombreProducto;
     private long cantidadProducto;
+    private boolean activo;
 
     public Producto() {
     }
 
-    public Producto(String codigoProducto, String nombreProducto, long cantidadProducto) {
+    public Producto(String codigoProducto, String nombreProducto, long cantidadProducto, boolean activo) {
         this.codigoProducto = codigoProducto;
         this.nombreProducto = nombreProducto;
         this.cantidadProducto = cantidadProducto;
+        this.activo = activo;
     }
+
+   
     
     
 }
