@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.ProyectoGrupo6.domain.Producto;
 import com.ProyectoGrupo6.service.ProductoService;
+import com.ProyectoGrupo6.serviceImpl.FirebaseStorageServiceImpl;
 import com.ProyectoGrupo6.serviceImpl.ProductoServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,20 @@ public class ProductoController {
     public String productoNuevo(Producto producto) {
         return "/producto/modifica";
     }
+    
+    @Autowired
+    private FirebaseStorageServiceImpl firebaseStorageService;
 
     @PostMapping("/guardar")
     public String productoGuardar(Producto producto) {
+        if (!imagenFile.isEmpty()) {
+            productoService.save(producto);
+            producto.setRutaImagen(
+                    firebaseStorageService.cargaImagen(
+                            imagenFile,
+                            "producto",
+                            producto.getCodigoProducto()));
+        }
         productoService.save(producto);
         return "redirect:/producto/listado";
     }
