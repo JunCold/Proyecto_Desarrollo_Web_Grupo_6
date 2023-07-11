@@ -10,18 +10,19 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Productos</h1>
+                    <h1 class="mt-4">Usuarios</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="index.html">Principal</a></li>
-                        <li class="breadcrumb-item active">Productos</li>
+                        <li class="breadcrumb-item active">Usuarios</li>
                     </ol>
                 </div>
-                <section th:replace="producto/fragmentos :: botonesAgregar"/>
-                <section th:replace="producto/fragmentos :: agregarProducto"/>
-                <section th:replace="producto/fragmentos :: listadoProductos"/>
+                <section th:replace="usuario/fragmentos :: botonesAgregar"/>
+                <section th:replace="usuario/fragmentos :: agregarUsuario"/>
+                <section th:replace="usuario/fragmentos :: listadoUsuarios"/>
             </main>
             <footer th:replace="layout/plantilla :: footer"></footer>
         </div>
         
     </body>
 </html>
+
