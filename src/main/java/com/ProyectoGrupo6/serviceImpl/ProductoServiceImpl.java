@@ -24,10 +24,11 @@ public class ProductoServiceImpl implements ProductoService {
         return productos;
     }
 
-    @Override
-    public Producto getProducto(Producto producto) {
-        return productoDao.findById(producto.getCodigoProducto()).orElse(null);
-    }
+      @Override
+    @Transactional(readOnly = true)
+    public Producto getProducto(Producto Producto) {
+        return productoDao.findById(Producto.getCodigoProducto()+"").orElse(null);
+                }
 
     @Override
     public void save(Producto producto) {
