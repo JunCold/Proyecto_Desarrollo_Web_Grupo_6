@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <title>TODO supply a title</title>
-       
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/plantilla :: head"> 
     </head>
     <body>
-        <div>TODO write content</div>
+        <div th:replace="layout/plantilla :: barra"></div>
+        <div th:replace="layout/plantilla :: menu1"></div>
+        
+        <section th:replace="productos/fragmentos :: editarProducto"/>
+        
+        <footer th:replace="layout/plantilla :: footer"></footer>
     </body>
 </html>
