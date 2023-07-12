@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ProyectoGrupo6.domain.Producto;
 import com.ProyectoGrupo6.service.ProductoService;
 import com.ProyectoGrupo6.serviceImpl.FirebaseStorageServiceImpl;
-import com.ProyectoGrupo6.serviceImpl.ProductoServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
