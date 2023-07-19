@@ -19,8 +19,6 @@ public class ProductoController {
 
     @Autowired
     ProductoService productoService;
-    
-    
 
     @GetMapping("/listado")
     public String inicio(Model model) {
@@ -34,7 +32,7 @@ public class ProductoController {
     public String productoNuevo(Producto producto) {
         return "/producto/modifica";
     }
-    
+
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
 
@@ -45,19 +43,19 @@ public class ProductoController {
             productoService.save(producto);
             producto.setRutaImagen(
                     firebaseStorageService.cargaImagen(imagenFile, "producto", producto.getCodigoProducto()));
-                   
+
         }
         productoService.save(producto);
         return "redirect:/producto/listado";
     }
 
-    @GetMapping("/eliminar/{idProducto}")
+    @GetMapping("/eliminar/{codigoProducto}")
     public String productoEliminar(Producto producto) {
         productoService.delete(producto);
         return "redirect:/producto/listado";
     }
 
-    @GetMapping("/modificar/{idProducto}")
+    @GetMapping("/modificar/{codigoProducto}")
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);

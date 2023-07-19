@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
-        
+
         <title>BioTec</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
@@ -16,7 +16,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <link href="../../static/css/estilos.css" rel="stylesheet" type="text/css"/>
-        
+
     </head>
     <body class="sb-nav-fixed">
         <!-- Menu lateral, header y footer-->
@@ -74,19 +74,19 @@
                                                 <i class="fa-regular fa-user"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span> </a>
                                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/usuario/listado} class="nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
+                                                    <a th:href="@{/usuario/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/cliente/listado} class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                                    <a th:href="@{/cliente/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a th:href="@{/inventario/listado} class="nav-link px-0 align-middle">
+                                            <a th:href="@{/inventario/listado}" class= "nav-link px-0 align-middle">
                                                 <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/venta/listado} class="nav-link px-0 align-middle">
+                                            <a th:href="@{/venta/listado}" class="nav-link px-0 align-middle">
                                                 <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Ventas</span></a>
                                         </li>
                                         <li>
@@ -94,16 +94,19 @@
                                                 <i class="fa-regular fa-vacuum"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
                                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/producto/listado} class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+
+
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado} class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado} class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado} class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -167,5 +170,7 @@
                     </div>
                 </footer>  
             </div>
+        </div>
+
     </body>
 </html>
