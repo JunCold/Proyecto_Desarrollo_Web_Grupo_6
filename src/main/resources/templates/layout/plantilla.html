@@ -9,13 +9,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <link href="../../static/css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../../../../Tienda/src/main/resources/static/css/estilos.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body class="sb-nav-fixed">
@@ -29,8 +26,8 @@
                     </a>
                     <!-- Sidebar Toggle -->
                     <!--<button class="btn btn-link btn-sm order-1g-1 me-4 me-lg-0 shadow-sm bg-dark-green text-white" id="sidebarToggle" type="button" data-bs-toggle="collapse" data-bs-target="#sidenavAccordion" onclick="toggleMenu()">
-                        <i class="fas fa-bars"></i>-->
-                    </button>
+                        <i class="fas fa-bars"></i>
+                    </button> 
                     <!-- Navbar Search-->
                     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                         <div class="input-group">
@@ -55,18 +52,18 @@
             </div>
 
             <div id="layoutSidenav_nav">
-                <div th:fragment="menu1">
+                <div th:fragment="menu1" class="menu-background">
                     <div class="container-fluid">
                         <div class="row flex-nowrap">
                             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none menu-text">
                                         <span>Menu</span>
                                     </a>
                                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link align-middle px-0">
-                                                <i class="fa-regular fa-house-blank"></i> <span class="ms-1 d-none d-sm-inline">Inicio</span>
+                                            <a href="#" class="nav-link align-middle px-0 menu-text">
+                                                <i class="fa-regular fa-house"></i> <span class="ms-1 d-none d-sm-inline menu-text">Inicio</span>
                                             </a>
                                         </li>
                                         <li>
@@ -74,10 +71,10 @@
                                                 <i class="fa-regular fa-user"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span> </a>
                                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/usuario/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
+                                                    <a th:href="@{/usuario/listado_empleado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/cliente/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                                    <a th:href="@{/usuario/listado_cliente}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -86,7 +83,7 @@
                                                 <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/venta/listado}" class="nav-link px-0 align-middle">
+                                            <a th:href="@{/ventas/listado}" class="nav-link px-0 align-middle">
                                                 <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Ventas</span></a>
                                         </li>
                                         <li>
@@ -94,68 +91,65 @@
                                                 <i class="fa-regular fa-vacuum"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
                                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                                 <li class="w-100">
-
-                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-
-
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Hogares</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Automotrices</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Institucionales</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
                                                 </li>
+
                                             </ul>
                                         </li>
                                     </ul> 
                                 </div>
                             </div>
-                            <div class="col py-3"></div>
-                            <div id="layoutSidenav_content">
-                                <main>
-                                    <div class="container-fluid px-4">
-                                        <h1 class="mt-4">Principal</h1>
-                                        <ol class="breadcrumb mb-4">
-                                            <li class="breadcrumb-item active">Principal</li>
-                                        </ol>
-                                        <div class="row">
-                                            <div class="col-xl-3 col-md-6">
-                                                <div class="card bg-primary text-white mb-4">
-                                                    <div class="card-body">Productos</div>
-                                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6">
-                                                <div class="card bg-warning text-white mb-4">
-                                                    <div class="card-body">Inventario</div>
-                                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6">
-                                                <div class="card bg-success text-white mb-4">
-                                                    <div class="card-body">Ventas</div>
-                                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </main>
-
-                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col py-3"></div>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid px-4">
+                            <h1 class="mt-4">Principal</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Principal</li>
+                            </ol>
+                            <div class="row">
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-primary text-white mb-4">
+                                        <div class="card-body">Productos</div>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-warning text-white mb-4">
+                                        <div class="card-body">Inventario</div>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-success text-white mb-4">
+                                        <div class="card-body">Ventas</div>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
                 </div>
                 <footer th:fragment="footer" class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -171,6 +165,5 @@
                 </footer>  
             </div>
         </div>
-
     </body>
 </html>

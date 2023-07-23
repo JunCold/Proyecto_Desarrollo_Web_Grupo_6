@@ -5,8 +5,9 @@ import com.ProyectoGrupo6.domain.Venta;
 import com.ProyectoGrupo6.service.VentaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class VentaServiceImpl implements VentaService{
     
     @Autowired
