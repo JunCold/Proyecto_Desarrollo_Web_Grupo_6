@@ -19,7 +19,7 @@ public class ClienteServiceImpl implements ClienteService {
     public List<Cliente> getClientes(boolean activos) {
         List<Cliente> Clientes = clienteDao.findAll();
         if (activos) {
-            Clientes.removeIf(x -> !x.isActivo());
+            Clientes.removeIf(x -> !x.isActivos());
         }
         return Clientes;
     }

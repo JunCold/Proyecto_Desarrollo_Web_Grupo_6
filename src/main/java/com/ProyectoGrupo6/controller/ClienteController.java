@@ -24,7 +24,7 @@ public class ClienteController {
         List<Cliente> clientes=clienteService.getClientes(false);
         model.addAttribute("clientes", clientes);
         model.addAttribute("totalClientes",clientes.size());
-        return "/clientes/listado";
+        return "/cliente/listado";
     }
     
     @GetMapping("/nuevo")

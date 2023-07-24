@@ -2,18 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head">
-
-        <title>BioTec</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <link href="../../../../../../Tienda/src/main/resources/static/css/estilos.css" rel="stylesheet" type="text/css"/>
-
+    <head th:replace="layout/plantilla :: head">
+        <title>Biotec</title>
     </head>
     <body class="sb-nav-fixed">
         <!-- Menu lateral, header y footer-->
@@ -24,11 +14,6 @@
                     <a class="navbar-brand ps-3" href=#>
                         <img src="../../static/imagenes/BioTec Logo.png" alt="Logo"/>
                     </a>
-                    <!-- Sidebar Toggle -->
-                    <!--<button class="btn btn-link btn-sm order-1g-1 me-4 me-lg-0 shadow-sm bg-dark-green text-white" id="sidebarToggle" type="button" data-bs-toggle="collapse" data-bs-target="#sidenavAccordion" onclick="toggleMenu()">
-                        <i class="fas fa-bars"></i>
-                    </button> 
-                    <!-- Navbar Search-->
                     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
@@ -74,7 +59,7 @@
                                                     <a th:href="@{/usuario/listado_empleado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/cliente/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                                    <a th:href="@{/usuario/listado_cliente}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -102,68 +87,51 @@
                                                 <li>
                                                     <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
                                                 </li>
-
                                             </ul>
                                         </li>
                                     </ul> 
                                 </div>
                             </div>
+                            <div class="col py-3"></div>
+                            <div id="layoutSidenav_content">
+                                <main>
+                                    <div class="container-fluid px-4">
+                                        <h1 class="mt-4">Clientes</h1>
+                                        <ol class="breadcrumb mb-4">
+                                            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                                            <li class="breadcrumb-item active">Clientes</li>
+                                        </ol>
+
+                                        <!--Aqui va el c'odigo-->
+
+                                        <section th:replace="cliente/fragmentos :: editarCliente"/>
+
+
+
+
+
+
+
+
+                                    </div>
+                            </div>
+                            </main>
                         </div>
                     </div>
                 </div>
-                <div class="col py-3"></div>
-                <div id="layoutSidenav_content">
-                    <main>
-                        <div class="container-fluid px-4">
-                            <h1 class="mt-4">Principal</h1>
-                            <ol class="breadcrumb mb-4">
-                                <li class="breadcrumb-item active">Principal</li>
-                            </ol>
-                            <div class="row">
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-primary text-white mb-4">
-                                        <div class="card-body">Productos</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-warning text-white mb-4">
-                                        <div class="card-body">Inventario</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-success text-white mb-4">
-                                        <div class="card-body">Ventas</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-                <footer th:fragment="footer" class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>  
             </div>
+            <footer th:fragment="footer" class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>  
         </div>
     </body>
 </html>
