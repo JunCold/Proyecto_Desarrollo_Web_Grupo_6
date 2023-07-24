@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}"> 
+        <title>Biotec </title>
+    </head>
+    <body>
+        <div th:replace="layout/plantilla :: barra"></div>
+        <div th:replace="layout/plantilla :: menu1"></div>
+        
+        <section th:replace="categoria/fragmentos :: editarCategoria"/>
+        
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>
