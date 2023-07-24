@@ -14,11 +14,6 @@
                     <a class="navbar-brand ps-3" href=#>
                         <img src="../../static/imagenes/BioTec Logo.png" alt="Logo"/>
                     </a>
-                    <!-- Sidebar Toggle -->
-                    <!--<button class="btn btn-link btn-sm order-1g-1 me-4 me-lg-0 shadow-sm bg-dark-green text-white" id="sidebarToggle" type="button" data-bs-toggle="collapse" data-bs-target="#sidenavAccordion" onclick="toggleMenu()">
-                        <i class="fas fa-bars"></i>
-                    </button>-->
-                    <!-- Navbar Search-->
                     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
@@ -61,10 +56,10 @@
                                                 <i class="fa-regular fa-user"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span> </a>
                                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/usuario/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
+                                                    <a th:href="@{/usuario/listado_empleado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/cliente/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                                    <a th:href="@{/usuario/listado_cliente}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -73,8 +68,12 @@
                                                 <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/venta/listado}" class="nav-link px-0 align-middle">
+                                            <a th:href="@{/ventas/listado}" class="nav-link px-0 align-middle">
                                                 <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Ventas</span></a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/categoria/listado}" class="nav-link px-0 align-middle">
+                                                <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Categoria</span></a>
                                         </li>
                                         <li>
                                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
@@ -92,34 +91,46 @@
                                                 <li>
                                                     <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
                                                 </li>
-
                                             </ul>
                                         </li>
                                     </ul> 
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col py-3"></div>
-                <div id="layoutSidenav_content">
-                    <main>
-                        <!--Aqui va la parte de la pantalla blanca  -->
-                    </main>
-                </div>
-                <footer th:fragment="footer" class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                            <div class="col py-3"></div>
+                            <div id="layoutSidenav_content">
+                                <main>
+                                    <div class="container-fluid px-4">
+                                        <h1 class="mt-4">Productos</h1>
+                                        <ol class="breadcrumb mb-4">
+                                            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                                            <li class="breadcrumb-item active">Productos</li>
+                                        </ol>
+
+                                        <!--Aqui va el c'odigo-->
+
+                                        <section th:replace="~{categoria/fragmentos :: botonesAgregar}"/>
+                                        <section th:replace="~{categoria/fragmentos :: agregarCategoria}"/> 
+                                        <section th:replace="~{categoria/fragmentos :: listadoCategorias}"/>
+
+
+                                    </div>
                             </div>
+                            </main>
                         </div>
                     </div>
-                </footer>  
+                </div>
             </div>
+            <footer th:fragment="footer" class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>  
         </div>
     </body>
-</html>
