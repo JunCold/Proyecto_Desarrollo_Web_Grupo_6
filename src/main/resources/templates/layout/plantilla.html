@@ -12,7 +12,6 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <link href="../../../../../../Tienda/src/main/resources/static/css/estilos.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body class="sb-nav-fixed">
@@ -84,7 +83,7 @@
                                         </li>
                                         <li>
                                             <a th:href="@{/categoria/listado}" class= "nav-link px-0 align-middle">
-                                                <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Categoria</span></a>
+                                                <i class="fa-solid fa-list"></i> <span class="ms-1 d-none d-sm-inline">Categoria</span></a>
                                         </li>
                                         <li>
                                             <a th:href="@{/ventas/listado}" class="nav-link px-0 align-middle">
@@ -92,7 +91,7 @@
                                         </li>
                                         <li>
                                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                                <i class="fa-regular fa-vacuum"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>        
+                                                <i class="fa-regular fa-pump-soap"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>        
                                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                                 <li class="w-100">
                                                     <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Hogares</a>
@@ -106,30 +105,47 @@
                                                 <li>
                                                     <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
                                                 </li>
-
                                             </ul>
                                         </li>
                                     </ul> 
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col py-3"></div>
-                <div id="layoutSidenav_content">
-                    <main>
-                        <div class="container-fluid px-4">
-                            <h1 class="mt-4">Principal</h1>
-                            <ol class="breadcrumb mb-4">
-                                <li class="breadcrumb-item active">Principal</li>
-                            </ol>
-                            <div class="row">
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-primary text-white mb-4">
-                                        <div class="card-body">Productos</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            <div class="col py-3"></div>
+                            <div id="layoutSidenav_content">
+                                <main>
+                                    <div class="container-fluid px-4">
+                                        <h1 class="mt-4">Principal</h1>
+                                        <ol class="breadcrumb mb-4">
+                                            <li class="breadcrumb-item active">Principal</li>
+                                        </ol>
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-6">
+                                                <div class="card bg-primary text-white mb-4">
+                                                    <div class="card-body">Productos</div>
+                                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-md-6">
+                                                <div class="card bg-warning text-white mb-4">
+                                                    <div class="card-body">Inventario</div>
+                                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-md-6">
+                                                <div class="card bg-success text-white mb-4">
+                                                    <div class="card-body">Ventas</div>
+                                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -160,9 +176,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                </main>
                             </div>
                         </div>
-                    </main>
+                    </div>
                 </div>
                 <footer th:fragment="footer" class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -177,6 +194,5 @@
                     </div>
                 </footer>  
             </div>
-        </div>
     </body>
 </html>
