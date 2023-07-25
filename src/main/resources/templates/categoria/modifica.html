@@ -2,15 +2,134 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{layout/plantilla :: head}"> 
+    <head th:replace="layout/plantilla :: head"> 
         <title>Biotec </title>
     </head>
     <body>
-        <div th:replace="layout/plantilla :: barra"></div>
-        <div th:replace="layout/plantilla :: menu1"></div>
-        
-        <section th:replace="categoria/fragmentos :: editarCategoria"/>
-        
-        <footer th:replace="layout/plantilla :: footer"></footer>
+        <!-- Menu lateral, header y footer-->
+        <div th:fragment="menu">
+            <div th:fragment="barra">
+                <nav class="sb-topnav navbar navbar-expand-md navbar-dark bg-success">
+                    <!-- Navbar Brand-->
+                    <a class="navbar-brand ps-3" href=#>
+                        <img src="../../static/imagenes/BioTec Logo.png" alt="Logo"/>
+                    </a>
+                    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                            <button class="btn btn-success shadow-sm bg-dark-green" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                    <!-- Navbar-->
+                    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle shadow-sm bg-dark-green text-white" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user fa-fw"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">Configuración</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Cerrar sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="layoutSidenav_nav">
+                <div th:fragment="menu1" class="menu-background">
+                    <div class="container-fluid">
+                        <div class="row flex-nowrap">
+                            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none menu-text">
+                                        <span>Menu</span>
+                                    </a>
+                                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link align-middle px-0 menu-text">
+                                                <i class="fa-regular fa-house"></i> <span class="ms-1 d-none d-sm-inline menu-text">Inicio</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                                <i class="fa-regular fa-user"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span> </a>
+                                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                                <li class="w-100">
+                                                    <a th:href="@{/usuario/listado_empleado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
+                                                </li>
+                                                <li>
+                                                    <a th:href="@{/usuario/listado_cliente}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/inventario/listado}" class= "nav-link px-0 align-middle">
+                                                <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/categoria/listado}" class= "nav-link px-0 align-middle">
+                                                <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Categoria</span></a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/ventas/listado}" class="nav-link px-0 align-middle">
+                                                <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Ventas</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                                <i class="fa-regular fa-vacuum"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
+                                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                                <li class="w-100">
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Hogares</a>
+                                                </li>
+                                                <li>
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Automotrices</a>
+                                                </li>
+                                                <li>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Institucionales</a>
+                                                </li>
+                                                <li>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul> 
+                                </div>
+                            </div>
+                            <div class="col py-3"></div>
+                            <div id="layoutSidenav_content">
+                                <main>
+                                    <div class="container-fluid px-4">
+                                        <h1 class="mt-4">Editar Categoria</h1>
+                                        <ol class="breadcrumb mb-4">
+                                            <li class="breadcrumb-item active"><a th:href="@{/categoria/listado}">
+                                                <button type="button" class="btn btn-success" onclick="goBack()" >
+                                                    Regresar
+                                                </button>
+                                            </a></li>
+                                        </ol>
+                                        <section th:replace="catgoria/fragmentos :: editarCategoria"/>
+                                        
+                                    </div>
+                            </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer th:fragment="footer" class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>  
+        </div>
+
     </body>
 </html>
