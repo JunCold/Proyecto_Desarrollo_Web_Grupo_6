@@ -13,25 +13,24 @@ public class Categoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo_categoria")
-    private Long codigoCategoria;
+    @Column(name = "id_categoria")
+    private Long idCategoria;
     private String nombreCategoria;
-    private long cantidadCategoria;
     private boolean activo;
     private String rutaImagen;
     
-     @OneToMany
-    @JoinColumn(name = "codigo_categoria")
-    private List<Producto> productos;
+
 
     public Categoria() {
     }
 
-    public Categoria(Long codigoCategoria, String nombreCategoria, long cantidadCategoria, boolean activo, String rutaImagen) {
-        this.codigoCategoria = codigoCategoria;
+    public Categoria(String nombreCategoria, boolean activo, String rutaImagen) {
         this.nombreCategoria = nombreCategoria;
-        this.cantidadCategoria = cantidadCategoria;
         this.activo = activo;
         this.rutaImagen = rutaImagen;
     }
+    
+    
+
+   
 }

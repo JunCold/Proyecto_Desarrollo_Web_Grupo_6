@@ -44,7 +44,7 @@ public class CategoriaController {
         if (!imagenFile.isEmpty()) {
             categoriaService.save(categoria);
             categoria.setRutaImagen(
-                    firebaseStorageService.cargaImagen(imagenFile, "categoria", categoria.getCodigoCategoria()));
+                    firebaseStorageService.cargaImagen(imagenFile, "categoria", categoria.getIdCategoria()));
 
         }
         categoriaService.save(categoria);
