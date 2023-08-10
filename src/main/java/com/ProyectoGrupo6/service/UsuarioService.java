@@ -1,12 +1,24 @@
-
 package com.ProyectoGrupo6.service;
+
 import com.ProyectoGrupo6.domain.Usuario;
 import java.util.List;
 
 public interface UsuarioService {
-    public List<Usuario> getUsuario(String cedula);
+
+    public List<Usuario> getUsuarios();
+
     public Usuario getUsuario(Usuario usuario);
-    public void save(Usuario usuario);
-    public void delete (Usuario usuario);
+
+    public Usuario getUsuarioPorUsername(String username);
+
+    public Usuario getUsuarioPorUsernameYPassword(String username, String password);
+
+    public Usuario getUsuarioPorUsernameOCorreo(String username, String correo);
     
+    public boolean existeUsuarioPorUsernameOCorreo(String username, String correo);
+
+    public void save(Usuario usuario, boolean crearRolUser);
+
+    public void delete(Usuario usuario);
+
 }
