@@ -9,4 +9,7 @@ public interface ProductoService {
     public Producto getProducto(Producto producto);
     public void save(Producto producto);
     public void delete (Producto producto);
+    
+    //Metodo para buscar un producto por su codigo
+    public Producto findByCodigo(Long codigoProducto);
 }
