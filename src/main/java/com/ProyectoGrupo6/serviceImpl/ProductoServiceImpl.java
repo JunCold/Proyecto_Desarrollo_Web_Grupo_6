@@ -46,4 +46,28 @@ public class ProductoServiceImpl implements ProductoService {
         return productoDao.findByCodigoProducto(codigoProducto);
     }
 
+    @Override
+    public Producto aumentarProducto(Long codigoProducto, Long cantidad) {
+        Producto producto = productoDao.findByCodigoProducto(codigoProducto);
+        if (producto != null) {
+            Long nuevaCantidad = producto.getCantidadProducto() + cantidad;
+            producto.setCantidadProducto(nuevaCantidad);
+            return productoDao.save(producto);
+        }
+        return null; 
+    }
+
+    @Override
+    public Producto disminuirProducto(Long codigoProducto, Long cantidad) {
+        Producto producto = productoDao.findByCodigoProducto(codigoProducto);
+        if (producto != null) {
+            Long nuevaCantidad = producto.getCantidadProducto() - cantidad;
+            if (nuevaCantidad >= 0) {
+                producto.setCantidadProducto(nuevaCantidad);
+                return productoDao.save(producto);
+            }
+        }
+        return null;
+    }
+
 }

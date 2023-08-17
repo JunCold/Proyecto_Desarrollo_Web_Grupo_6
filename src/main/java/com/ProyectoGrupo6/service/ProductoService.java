@@ -12,4 +12,10 @@ public interface ProductoService {
     
     //Metodo para buscar un producto por su codigo
     public Producto findByCodigo(Long codigoProducto);
+    
+    //Metodo para aumentar la cantidad de productos en existencia
+    public Producto aumentarProducto(Long codigoProducto, Long cantidad);
+    
+    //Metodo para disminuir la cantidad de productos en existencia
+    public Producto disminuirProducto(Long codigoProducto, Long cantidad);
 }

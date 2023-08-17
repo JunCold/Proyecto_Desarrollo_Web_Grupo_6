@@ -1,5 +1,6 @@
 package com.ProyectoGrupo6.controller;
 
+import com.ProyectoGrupo6.domain.Producto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,25 @@ public class InventarioController {
         var productos= productoService.findByCodigo(codigoProducto);
         model.addAttribute("productos",productos);
         model.addAttribute("codigoProducto",codigoProducto);
-        return "/inventario/listado2";
+        return "/inventario/listado";
     }
+    
+    @GetMapping("/aumentar/{idProducto}")
+    public String productoAumentar (Producto producto,Long cantidad, Model model){
+        
+        producto= productoService.aumentarProducto(producto.getCodigoProducto(), cantidad);
+        model.addAttribute("producto",producto);
+        model.addAttribute("cantidadAumentar", cantidad);
+        return "redirect:/inventario/listado";
+    }
+    
+    @GetMapping("/disminuir/{idProducto}")
+    public String productoDisminuir(Producto producto, Long cantidad, Model model){
+        producto=productoService.disminuirProducto(producto.getCodigoProducto(), cantidad);
+        model.addAttribute("cantidadDisminuir",cantidad);
+        model.addAttribute("producto",producto);
+        return "redirect:/inventario/listado";
+    }
+    
 
 }

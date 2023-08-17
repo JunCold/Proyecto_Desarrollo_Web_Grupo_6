@@ -103,6 +103,10 @@
                 <div id="layoutSidenav_content">
                     <main>
                         <!--Aqui va la parte de la pantalla blanca  -->
+                        
+                        <section th:replace="~{inventario/fragmentos :: busqueda}"/>
+                        <section th:replace="~{inventario/fragmentos :: listadoProductos}"/>
+                        
                     </main>
                 </div>
                 <footer th:fragment="footer" class="py-4 bg-light mt-auto">
