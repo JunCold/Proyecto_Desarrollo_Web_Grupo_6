@@ -60,29 +60,51 @@ public class ProyectConfig implements WebMvcConfigurer {
         builder.userDetailsService(userDetails).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    @Bean
+     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/index", "/errores/**",
-                        "/registro/**", "/js/**", "/webjars/**")
-                .permitAll()
-                .requestMatchers(
-                        "/producto/nuevo", "/producto/guardar",
+                        "/registro/**", "/js/**", "/webjars/**","/producto/nuevo", "/producto/guardar",
                         "/producto/modificar/**", "/producto/eliminar/**",
                         "/categoria/nuevo", "/categoria/guardar", "/producto/listado",
                         "/categoria/modificar/**", "/categoria/eliminar/**",
                         "/usuario/nuevo", "/usuario/guardar",
-                        "/usuario/modificar/**", "/usuario/eliminar/**"
-                ).hasRole("ADMIN")
-                        .requestMatchers(
-                        "/producto/listado","/categoria/listado","/cliente/listado","/inventario/listado"
-                ).hasAnyRole("ADMIN","EMPLEADO")
+                        "/usuario/modificar/**", "/usuario/eliminar/**",
+                        "/producto/listado","/categoria/listado","/cliente/listado",
+                        "/inventario/listado","/inventario/query1","/cliente/guardar","/cliente/nuevo")
+                .permitAll()
+                
                 )
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())
                 .logout((logout) -> logout.permitAll());
         return http.build();
-    }
-
+    }  
 }
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//                .authorizeHttpRequests((request) -> request
+//                .requestMatchers("/", "/index", "/errores/**",
+//                        "/registro/**", "/js/**", "/webjars/**")
+//                .permitAll()
+//                .requestMatchers(
+//                        "/producto/nuevo", "/producto/guardar",
+//                        "/producto/modificar/**", "/producto/eliminar/**",
+//                        "/categoria/nuevo", "/categoria/guardar", "/producto/listado",
+//                        "/categoria/modificar/**", "/categoria/eliminar/**",
+//                        "/usuario/nuevo", "/usuario/guardar",
+//                        "/usuario/modificar/**", "/usuario/eliminar/**"
+//                ).hasRole("ADMIN")
+//                        .requestMatchers(
+//                        "/producto/listado","/categoria/listado","/cliente/listado","/inventario/listado"
+//                ).hasAnyRole("ADMIN","EMPLEADO")
+//                )
+//                .formLogin((form) -> form
+//                .loginPage("/login").permitAll())
+//                .logout((logout) -> logout.permitAll());
+//        return http.build();
+//    }
+//
+//}
