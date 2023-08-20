@@ -11,7 +11,8 @@ public interface ProductoService {
     public void delete (Producto producto);
     
     //Metodo para buscar un producto por su codigo
-    public Producto findByCodigo(Long codigoProducto);
+    public Producto findById(Long codigoProducto);
+   
     
     //Metodo para aumentar la cantidad de productos en existencia
     public Producto aumentarProducto(Long codigoProducto, Long cantidad);

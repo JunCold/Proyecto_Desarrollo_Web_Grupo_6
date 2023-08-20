@@ -48,33 +48,79 @@
                 </div>
             </div>
         </section>
-        
-          <!-- 2 Sección para la busqueda por codigo -->
-          <section th:fragment="busqueda" class="bg-light">
-              <div class="row py-2">
-                  <div class="col-md-1"></div>
-                  <div class="col-md-3">
-                      <form method="POST" th:action="@{/inventario/query1}" 
+
+        <!-- 2 Sección para la busqueda por codigo -->
+        <section th:fragment="busqueda" class="bg-light">
+            <div class="row py-2">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/inventario/query1}" 
                           class="was-validated">
-                          <div class="card">
-                              <div class="card-body">
-                                  <div class="mb-3">
-                                      <label for="codigoProducto">Codigo del producto</label>
-                                      <input type="number" class="form-control" 
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="codigoProducto">Codigo del producto</label>
+                                    <input type="number" class="form-control" 
                                            th:value="${codigoProducto}"
                                            th:name="codigoProducto" required="true"/>                                      
-                                  </div>
-                              </div>
-                              <div class="card-footer text-center">
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-check"></i> Buscar
+                                    <i class="fas fa-search"></i> Buscar
                                 </button>
                             </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </section>
-          
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección para mostrar el producto encontrado -->
+
+        <section th:fragment="productoEncontrado" th:if="${productoEncontrado != null}" class="bg-light">
+            <div class="card mb-4" style="width: 80%;">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Producto Encontrado
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código producto</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td th:text="${productoEncontrado.codigoProducto}"></td>
+                                    <td th:text="${productoEncontrado.nombreProducto}"></td>
+                                    <td th:text="${productoEncontrado.cantidadProducto}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sección para mostrar mensaje si el producto no fue encontrado -->
+        <section th:fragment="productoNoEncontrado" th:if="${productoEncontrado == null}" class="bg-light">
+            <div class="card mb-4" style="width: 80%;">
+                <div class="card-header">
+                    <i class="fas fa-exclamation-circle me-1"></i>
+                    Producto No Encontrado
+                </div>
+                <div class="card-body">
+                    <p>No se encontró ningún producto con el código especificado.</p>
+                </div>
+            </div>
+        </section>
+
+
+
     </body>
 </html>

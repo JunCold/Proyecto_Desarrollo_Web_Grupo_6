@@ -74,7 +74,8 @@ public class ProyectConfig implements WebMvcConfigurer {
                         "/producto/listado","/categoria/listado","/cliente/listado",
                         "/inventario/listado","/inventario/query1",
                         "/cliente/guardar","/cliente/nuevo","/inventario/query1",
-                        "/cliente/eliminar/**","/cliente/modificar/**","/cliente/modifica","/cliente/guardar")
+                        "/cliente/eliminar/**","/cliente/modificar/**",
+                        "/cliente/modifica","/cliente/guardar","/inventario/listado2")
                 .permitAll()
                 
                 )

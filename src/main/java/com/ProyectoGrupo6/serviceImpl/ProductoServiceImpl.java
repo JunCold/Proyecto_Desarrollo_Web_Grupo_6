@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 @Service
 public class ProductoServiceImpl implements ProductoService {
 
@@ -24,11 +25,11 @@ public class ProductoServiceImpl implements ProductoService {
         return productos;
     }
 
-      @Override
+    @Override
     @Transactional(readOnly = true)
     public Producto getProducto(Producto Producto) {
         return productoDao.findById(Producto.getCodigoProducto()).orElse(null);
-                }
+    }
 
     @Override
     public void save(Producto producto) {
@@ -41,12 +42,6 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    @Transactional(readOnly=true)  
-    public Producto findByCodigo(Long codigoProducto) {
-        return productoDao.findByCodigoProducto(codigoProducto);
-    }
-
-    @Override
     public Producto aumentarProducto(Long codigoProducto, Long cantidad) {
         Producto producto = productoDao.findByCodigoProducto(codigoProducto);
         if (producto != null) {
@@ -54,7 +49,7 @@ public class ProductoServiceImpl implements ProductoService {
             producto.setCantidadProducto(nuevaCantidad);
             return productoDao.save(producto);
         }
-        return null; 
+        return null;
     }
 
     @Override
@@ -68,6 +63,12 @@ public class ProductoServiceImpl implements ProductoService {
             }
         }
         return null;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Producto findById(Long codigoProducto) {
+        return productoDao.findById(codigoProducto).orElse(null);
     }
 
 }
