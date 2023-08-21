@@ -48,6 +48,7 @@ public class ProyectConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
+        registry.addViewController("layout/plantilla").setViewName("layout/plantilla");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
@@ -74,7 +75,8 @@ public class ProyectConfig implements WebMvcConfigurer {
                         "/producto/listado","/categoria/listado","/cliente/listado",
                         "/inventario/listado","/inventario/query1",
                         "/cliente/guardar","/cliente/nuevo","/inventario/query1",
-                        "/cliente/eliminar/**","/cliente/modificar/**","/cliente/modifica","/cliente/guardar")
+                        "/cliente/eliminar/**","/cliente/modificar/**","/cliente/modifica","/cliente/guardar",
+                        "/layout/plantilla")
                 .permitAll()
                 
                 )

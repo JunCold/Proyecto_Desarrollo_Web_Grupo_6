@@ -1,11 +1,72 @@
 <!DOCTYPE html>
+<!--<h2>Enlaces Externos</h2>
+        <a href="https://www.google.com/maps/@9.9331666,-84.0643125,2615m/data=!3m1!1e3" target="_blank">Ir a Maps</a>-->
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{layout/plantilla :: head}">
-        <title>BioTec </title>
-    </head>
-    <body>
-        <div th:replace="~{layout/plantilla :: menu}"></div>
-    </body>
-</html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/header_footer :: head">
+        <title>Inicio</title>
+        <meta charset="UTF-8">        
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="css/index.css"/>
+                <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+                    
+
+                        <nav class="navbar navbar-light shadow p-2 " style="background-color: #003b81;">
+                            <a class="navbar-brand fas fa align-center text-white" style="font-family: Roboto; font-size: 30px" href="#">
+                                <img src="https://www.bioteccr.com/web/wp-content/uploads/2017/11/bioteccr-productos-limpieza-y-sanitizacion-biodegradables-distribuidor-costa-rica.png" 
+                                     class="d-inline-block align-top" alt="inicio"> 
+                                    
+                                    
+                            </a>
+                            <div class="mx-auto d-block">
+                                <a th:href="@{/login}" class="btn">
+                                    <button type="button" class="btn btn-light btn-lg"><i class="fas fa-user"></i>[[#{plantilla.ingresar}]]</button>  
+                                </a>
+                                <a th:href="@{layout/plantilla}" class="btn">
+                                    <button type="button" class="btn btn-light btn-lg">[[#{plantilla.inventario}]]</button>
+                                </a>
+                            </div>
+
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item"  th:href="@{/(lang=es)}">ES</a></li>
+                                        <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
+                                    </ul>
+                                </li>
+                            </ul> 
+                        </nav>
+                        </head>
+                        <body style="background-color: #0055b8;">
+                            <br>
+                            <br>
+                            <div class="container"> 
+                                <img class="mx-auto d-block" src="https://www.celima.es/wp-content/uploads/2022/09/Limpieza.png" 
+                                     width="450" height="200" alt=""/>
+                                <br>
+                                    <br>
+                                        <div class="media">
+                                            
+                                                <div class="media-body text-white ">
+                                                   
+                                                    <p class="text-center" style="font-family: Roboto; font-size: 20px">
+                                                        Somos una compañía vendedora y productora de líneas institucionales para limpieza y sanitización, 
+                                                        localizada en Costa Rica con productos de alta calidad que permiten a nuestros clientes lograr altos rendimientos
+                                                        a precios competitivos y que además intenta motivar la conciencia de sus clientes en la protección del medio 
+                                                        ambiente.
+                                                    </p>
+                                                </div>
+                                        </div>
+
+
+
+                                        </div>
+
+                                        <!-- <header th:replace="layout/plantilla :: header"></header>-->
+                                        <footer th:replace="layout/header_footer :: footer"></footer>
+                                        </body>
+                                        </html>
+
+
