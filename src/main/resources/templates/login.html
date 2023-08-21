@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org">
+    <head head th:replace="~{layout/header_footer :: head}">
+        <title>BioTec</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </head>
+                <body style="background-color: #0055b8;">
+                    <header th:replace="~{layout/header_footer :: header}"/>
+                    <div class="container my-5" >
+                        <div class="row align-items-center" > 
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header " >  
+                                        <h2>[[#{login.login}]]</h2>
+                                    </div>
+                                    <div class="card-body mx-auto d-block">
+                                        <p class="text-center" style="font-family: Roboto; font-size: 15px">
+                                            Al seguir confirmas que aceptas nuestros Términos y Condiciones.
+                                        </p>
+                                        <form method="POST" th:action="@{/login}">
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 my-auto" for="username">
+                                                    <i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
+                                                <div class="col-md-7 my-auto">
+                                                    <input class="form-control" type="text" name="username" id="username"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 my-auto" for="password">
+                                                    <i class="fas fa-key"></i>[[#{login.password}]]
+                                                </label>
+                                                <div class="col-md-7 my-auto">
+                                                    <input class="form-control" type="password" name="password" id="password"/>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                    <div class="card-footer col text-center">
+                                        <button class="btn rounded-pill" style="background-color: #4FC8B9;" type="submit">
+                                            <a th:href="@{layout/plantilla}" class="btn text-white">
+                                            <span class="btn text-white">
+                                                <i class="fas fa-sign-in-alt"></i>
+                                                [[#{login.login}]]</span></a>
+                                        </button>
+
+                                        <p class="text-center" style="font-family: Roboto; font-size: 12px">
+                                            <a target="_blank" th:href="@{/registro/recordar}">¿Olvidaste tu contraseña?</a>
+                                        </p>
+                                        <div class="container mt-3">
+
+                                            <div class="row">
+                                                <div class="col" style="font-family: Roboto; font-size: 15px">
+                                                    <p>¡Si aún no tienes cuenta,  regístrate aquí!</p>
+                                                </div>
+                                                <div class="col text-right">
+                                                    <button class="btn rounded-pill" style="background-color: #D31DC1;" >
+                                                        <a th:href="@{/registro/nuevo}" class="btn text-white">
+                                                            <i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!--  <button class="btn btn-info rounded-pill" >                                        
+                                         <a th:href="@{/registro/recordar}" class="btn">
+                                         <i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a>
+                                         </button>-->
+
+                                    </div>
+                                    </form>                            
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                            <div class="alert alert-danger text-center" style="font-family: Roboto; font-size: 10px" role="alert" 
+                                 th:if="${param.error != null}">
+                                <h3>[[#{error.login}]]</h3>
+                            </div>
+                    </div>           
+
+                    <footer th:replace="~{layout/header_footer :: footer}"/>
+                </body>
+                </html>
