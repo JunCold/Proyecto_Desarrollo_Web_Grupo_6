@@ -23,31 +23,36 @@ public class InventarioController {
         model.addAttribute("productos", productos);
         return "/inventario/listado";
     }
-  
-    @PostMapping("/query1")
-    public String consultaQuery (@RequestParam(value = "codigoProducto") Long codigoProducto, Model model){
-        var productos= productoService.findByCodigo(codigoProducto);
-        model.addAttribute("productos",productos);
-        model.addAttribute("codigoProducto",codigoProducto);
-        return "/inventario/listado";
-    }
     
+    @GetMapping("/listado2")
+    public String listado2(Model model){
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        return"/inventario/listado2";
+    }
+
     @GetMapping("/aumentar/{idProducto}")
-    public String productoAumentar (Producto producto,Long cantidad, Model model){
-        
-        producto= productoService.aumentarProducto(producto.getCodigoProducto(), cantidad);
-        model.addAttribute("producto",producto);
+    public String productoAumentar(Producto producto, Long cantidad, Model model) {
+
+        producto = productoService.aumentarProducto(producto.getCodigoProducto(), cantidad);
+        model.addAttribute("producto", producto);
         model.addAttribute("cantidadAumentar", cantidad);
         return "redirect:/inventario/listado";
     }
-    
+
     @GetMapping("/disminuir/{idProducto}")
-    public String productoDisminuir(Producto producto, Long cantidad, Model model){
-        producto=productoService.disminuirProducto(producto.getCodigoProducto(), cantidad);
-        model.addAttribute("cantidadDisminuir",cantidad);
-        model.addAttribute("producto",producto);
+    public String productoDisminuir(Producto producto, Long cantidad, Model model) {
+        producto = productoService.disminuirProducto(producto.getCodigoProducto(), cantidad);
+        model.addAttribute("cantidadDisminuir", cantidad);
+        model.addAttribute("producto", producto);
         return "redirect:/inventario/listado";
     }
-    
+
+    @PostMapping("/query1")
+    public String consultaQuery(@RequestParam(value = "codigoProducto") Long codigoProducto, Model model) {
+        Producto productoEncontrado = productoService.findById(codigoProducto);
+        model.addAttribute("productoEncontrado", productoEncontrado);
+        return "/inventario/listado2";
+    }
 
 }
