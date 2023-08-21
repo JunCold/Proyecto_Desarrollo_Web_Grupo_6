@@ -51,31 +51,19 @@
 
         <!-- 2 Sección para la busqueda por codigo -->
         <section th:fragment="busqueda" class="bg-light">
-            <div class="row py-2">
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                    <form method="POST" th:action="@{/inventario/query1}" 
-                          class="was-validated">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="codigoProducto">Codigo del producto</label>
-                                    <input type="number" class="form-control" 
-                                           th:value="${codigoProducto}"
-                                           th:name="codigoProducto" required="true"/>                                      
-                                </div>
-                            </div>
-                            <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-search"></i> Buscar
-                                </button>
-                            </div>
-
-                        </div>
-                    </form>
+            <form method="POST" th:action="@{/inventario/query1}"
+                  class="was-validated d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control"
+                           type="number" placeholder="Código del producto..." 
+                           aria-label="Código del producto..." aria-describedby="btnNavbarSearch" 
+                           th:value="${codigoProducto}"
+                           th:name="codigoProducto" required="true"/>
+                    <button class="btn btn-success shadow-sm bg-dark-green" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
-            </div>
+            </form>
         </section>
+        
 
         <!-- Sección para mostrar el producto encontrado -->
 

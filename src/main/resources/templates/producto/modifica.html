@@ -14,6 +14,11 @@
                     <a class="navbar-brand ps-3" href=#>
                         <img src="../../static/imagenes/BioTec Logo.png" alt="Logo"/>
                     </a>
+                    <!-- Sidebar Toggle -->
+                    <!--<button class="btn btn-link btn-sm order-1g-1 me-4 me-lg-0 shadow-sm bg-dark-green text-white" id="sidebarToggle" type="button" data-bs-toggle="collapse" data-bs-target="#sidenavAccordion" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button> 
+                    <!-- Navbar Search-->
                     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
@@ -43,49 +48,49 @@
                             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                                     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none menu-text">
-                                        <span>Menu</span>
+                                        <span class="fs-3 font-weight-bold">Menu</span>
                                     </a>
                                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link align-middle px-0 menu-text">
+                                            <a href="#" class="nav-link align-middle px-0 menu-text text-white">
                                                 <i class="fa-regular fa-house"></i> <span class="ms-1 d-none d-sm-inline menu-text">Inicio</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                                                 <i class="fa-regular fa-user"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span> </a>
                                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/usuario/listado_empleado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
+                                                    <a th:href="@{/usuario/listado_empleado}" class= "nav-link px-0 text-white"> <span class="d-none d-sm-inline">Empleados</span></a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/usuario/listado_cliente}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                                    <a th:href="@{/usuario/listado_cliente}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Clientes</span></a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a th:href="@{/inventario/listado}" class= "nav-link px-0 align-middle">
+                                            <a th:href="@{/inventario/listado}" class= "nav-link px-0 align-middle text-white">
                                                 <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/ventas/listado}" class="nav-link px-0 align-middle">
+                                            <a th:href="@{/ventas/listado}" class="nav-link px-0 align-middle text-white">
                                                 <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Ventas</span></a>
                                         </li>
                                         <li>
-                                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                                <i class="fa-regular fa-vacuum"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
+                                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
+                                                <i class="fa-regular fa-pump-soap"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
                                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Hogares</a>
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Hogares</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Automotrices</a>
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Automotrices</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Institucionales</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Institucionales</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -98,17 +103,20 @@
                                     <div class="container-fluid px-4">
                                         <h1 class="mt-4">Editar Producto</h1>
                                         <ol class="breadcrumb mb-4">
-                                            <li class="breadcrumb-item active"><a th:href="@{/producto/listado}">
-                                                <button type="button" class="btn btn-success" onclick="goBack()" >
-                                                    Regresar
-                                                </button>
-                                            </a></li>
+                                            <li class="breadcrumb-item active">
+                                                <a th:href="@{/producto/listado}">
+                                                    <button type="button" class="btn btn-success" onclick="goBack()" >
+                                                        Regresar
+                                                    </button>
+                                                </a>
+                                            </li>
                                         </ol>
+                                        
                                         <section th:replace="producto/fragmentos :: editarProducto"/>
                                         
                                     </div>
+                                </main>
                             </div>
-                            </main>
                         </div>
                     </div>
                 </div>
@@ -126,6 +134,5 @@
                 </div>
             </footer>  
         </div>
-
     </body>
 </html>

@@ -48,79 +48,82 @@
                             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                                     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none menu-text">
-                                        <span>Menu</span>
+                                        <span class="fs-3 font-weight-bold">Menu</span>
                                     </a>
                                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link align-middle px-0 menu-text">
+                                            <a th:href="@{/index}" class="nav-link align-middle px-0 menu-text text-white">
                                                 <i class="fa-regular fa-house"></i> <span class="ms-1 d-none d-sm-inline menu-text">Inicio</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                                                 <i class="fa-regular fa-user"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span> </a>
                                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/usuario/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Empleados</span></a>
+                                                    <a th:href="@{/usuario/listado_empleado}" class= "nav-link px-0 text-white"> <span class="d-none d-sm-inline">Empleados</span></a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/cliente/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                                    <a th:href="@{/usuario/listado_cliente}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Clientes</span></a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a th:href="@{/inventario/listado}" class= "nav-link px-0 align-middle">
+                                            <a th:href="@{/inventario/listado}" class= "nav-link px-0 align-middle text-white">
                                                 <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/venta/listado}" class="nav-link px-0 align-middle">
-                                                <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Ventas</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                                <i class="fa-regular fa-vacuum"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
+                                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
+                                                <i class="fa-regular fa-pump-soap"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
                                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                                 <li class="w-100">
-                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Hogares</a>
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Hogares</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class="nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Automotrices</a>
+                                                    <a th:href="@{/producto/listado}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Automotrices</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Institucionales</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Institucionales</a>
                                                 </li>
                                                 <li>
-                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
+                                                    <a th:href="@{/producto/listado}" class= "nav-link px-0 text-white"> <span class="d-none d-sm-inline">Productos</span> Consultorios</a>
                                                 </li>
-
                                             </ul>
                                         </li>
                                     </ul> 
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col py-3"></div>
-                <div id="layoutSidenav_content">
-                    <main>
-                        <!--Aqui va la parte de la pantalla blanca  -->
-                    </main>
-                </div>
-                <footer th:fragment="footer" class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                            <div class="col py-3"></div>
+                            <div id="layoutSidenav_content">
+                                <main>
+                                    <div class="container-fluid px-4">
+                                        <h1 class="mt-4">Clientes</h1>
+                                        <ol class="breadcrumb mb-4">
+                                            <li class="breadcrumb-item active">
+                                                <a th:href="@{/index}">
+                                                    <button type="button" class="btn btn-success">
+                                                        <i class="fa-solid fa-arrow-left" style="color: white;"></i>
+                                                    </button>
+                                                </a>
+                                            </li>
+                                        </ol>
+                                        <!--Aqui va la parte de la pantalla blanca  -->
+                                </main>
                             </div>
+                            <footer th:fragment="footer" class="py-4 bg-light mt-auto">
+                                <div class="container-fluid px-4">
+                                    <div class="d-flex align-items-center justify-content-between small">
+                                        <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
+                                        <div>
+                                            <a href="#">Privacy Policy</a>
+                                            &middot;
+                                            <a href="#">Terms &amp; Conditions</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>  
                         </div>
                     </div>
-                </footer>  
-            </div>
-        </div>
-    </body>
-</html>
+                    </body>
+                    </html>
 

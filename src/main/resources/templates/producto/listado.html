@@ -47,7 +47,7 @@
                                     </a>
                                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link align-middle px-0 menu-text text-white">
+                                            <a th:href="@{/index}" class="nav-link align-middle px-0 menu-text text-white">
                                                 <i class="fa-regular fa-house"></i> <span class="ms-1 d-none d-sm-inline menu-text">Inicio</span>
                                             </a>
                                         </li>
@@ -66,10 +66,6 @@
                                         <li>
                                             <a th:href="@{/inventario/listado}" class= "nav-link px-0 align-middle text-white">
                                                 <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
-                                        </li>
-                                        <li>
-                                            <a th:href="@{/ventas/listado}" class="nav-link px-0 align-middle text-white">
-                                                <i class="fa-regular fa-truck-fast"></i> <span class="ms-1 d-none d-sm-inline">Ventas</span></a>
                                         </li>
                                         <li>
                                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
@@ -98,11 +94,13 @@
                                     <div class="container-fluid px-4">
                                         <h1 class="mt-4">Productos</h1>
                                         <ol class="breadcrumb mb-4">
-                                            <li class="breadcrumb-item active"><a th:href="@{/producto/listado}">
-                                                <button type="button" class="btn btn-success" onclick="goBack()" >
-                                                    <i class="fa-solid fa-arrow-left" style="color: white;"></i>
-                                                </button>
-                                            </a></li>
+                                            <li class="breadcrumb-item active">
+                                                <a th:href="@{/index}">
+                                                    <button type="button" class="btn btn-success">
+                                                        <i class="fa-solid fa-arrow-left" style="color: white;"></i>
+                                                    </button>
+                                                </a>
+                                            </li>
                                         </ol>
                                         
                                         <!--Esta parte es la de la tabla-->
