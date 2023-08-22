@@ -140,7 +140,7 @@
         <div class="row justify-content-center"> <!-- Agregamos la clase "justify-content-center" para centrar el contenido -->
             <div class="col-md-8">
                 <form method="POST"
-                      th:action="@{/cliente/guardar}" s
+                      th:action="@{/cliente/guardar}" 
                       th:object="${cliente}"
                       class="was-validated"                          
                       enctype="multipart/form-data"
@@ -174,7 +174,7 @@
                                        type="checkbox" 
                                        name="activos" 
                                        th:field="*{activos}"
-                                       id="activos">
+                                       id="activos"/>
                             </div>
                         </div>
                     </div>
