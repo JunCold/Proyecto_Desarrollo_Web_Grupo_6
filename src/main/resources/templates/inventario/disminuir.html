@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Biotec - Disminuir Cantidad</title>
+</head>
+<body>
+    <section>
+        <h2>Disminuir Cantidad del Producto [[${producto.nombreProducto}]]</h2>
+        <form th:action="@{/inventario/disminuir/{idProducto}(idProducto=${producto.codigoProducto})}" method="post">
+            <input type="number" name="cantidadDisminuir" placeholder="Cantidad a Disminuir" required="true"/>
+            <button type="submit">Disminuir</button>
+        </form>
+    </section>
+</body>
+</html>

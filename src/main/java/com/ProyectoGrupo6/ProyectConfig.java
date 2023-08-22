@@ -65,20 +65,16 @@ public class ProyectConfig implements WebMvcConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**",
-                        "/registro/**", "/js/**", "/webjars/**", "/producto/nuevo", "/producto/guardar",
-                        "/producto/modificar/**", "/producto/eliminar/**",
-                        "/categoria/nuevo", "/categoria/guardar", "/producto/listado",
-                        "/categoria/modificar/**", "/categoria/eliminar/**",
-                        "/usuario/nuevo", "/usuario/guardar",
-                        "/usuario/modificar/**", "/usuario/eliminar/**",
-                        "/producto/listado", "/categoria/listado", "/cliente/listado",
-                        "/inventario/listado", "/inventario/query1",
-                        "/cliente/guardar", "/cliente/nuevo", "/inventario/query1",
-                        "/cliente/eliminar/**", "/cliente/modificar/**", "/cliente/modifica", "/cliente/guardar",
-                        "/layout/plantilla",
-                        "/cliente/eliminar/**", "/cliente/modificar/**",
-                        "/cliente/modifica", "/cliente/guardar", "/inventario/listado2")
+                .requestMatchers("/", "/index", "/errores/**", "/registro/**", "/js/**", "/webjars/**",
+                        "/producto/nuevo", "/producto/guardar", "/producto/modificar/**", "/producto/eliminar/**",
+                        "/categoria/nuevo", "/categoria/guardar", "/producto/listado", "/categoria/modificar/**",
+                        "/categoria/eliminar/**", "/usuario/nuevo", "/usuario/guardar", "/usuario/modificar/**",
+                        "/usuario/eliminar/**", "/producto/listado", "/categoria/listado", "/cliente/listado",
+                        "/inventario/listado", "/inventario/query1", "/cliente/guardar", "/cliente/nuevo",
+                        "/inventario/query1", "/cliente/eliminar/**", "/cliente/modificar/**", "/cliente/modifica",
+                        "/cliente/guardar", "/layout/plantilla", "/cliente/eliminar/**", "/cliente/modificar/**",
+                        "/cliente/modifica", "/cliente/guardar", "/inventario/listado2",
+                        "/inventario/aumentar", "/inventario/disminuir","/inventario/aumentar/**","/inventario/disminuir/**")
                 .permitAll()
                 )
                 .formLogin((form) -> form

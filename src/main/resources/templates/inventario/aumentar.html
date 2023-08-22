@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Biotec - Aumentar Cantidad</title>
+</head>
+<body>
+    <section>
+        <h2>Aumentar Cantidad del Producto [[${producto.nombreProducto}]]</h2>
+        <form th:action="@{/inventario/aumentar/{idProducto}(idProducto=${producto.codigoProducto})}" method="post">
+            <input type="number" name="cantidadAumentar" placeholder="Cantidad a Aumentar" required="true"/>
+            <button type="submit">Aumentar</button>
+        </form>
+    </section>
+</body>
+</html>

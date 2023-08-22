@@ -42,33 +42,39 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public Producto aumentarProducto(Long codigoProducto, Long cantidad) {
-        Producto producto = productoDao.findByCodigoProducto(codigoProducto);
-        if (producto != null) {
-            Long nuevaCantidad = producto.getCantidadProducto() + cantidad;
-            producto.setCantidadProducto(nuevaCantidad);
-            return productoDao.save(producto);
-        }
-        return null;
+    @Transactional(readOnly = true)
+    public Producto findById(Long codigoProducto) {
+        return productoDao.findById(codigoProducto).orElse(null);
     }
 
     @Override
-    public Producto disminuirProducto(Long codigoProducto, Long cantidad) {
-        Producto producto = productoDao.findByCodigoProducto(codigoProducto);
+    @Transactional
+    public Producto aumentarProducto(Long codigoProducto, Long cantidadAumentar) {
+        Producto producto = productoDao.findById(codigoProducto).orElse(null);
+
         if (producto != null) {
-            Long nuevaCantidad = producto.getCantidadProducto() - cantidad;
+            producto.setCantidadProducto(producto.getCantidadProducto() + cantidadAumentar);
+            return productoDao.save(producto);
+        }
+
+        return null; // En caso de no encontrar el producto
+    }
+
+    @Override
+    @Transactional
+    public Producto disminuirProducto(Long codigoProducto, Long cantidadDisminuir) {
+        Producto producto = productoDao.findById(codigoProducto).orElse(null);
+
+        if (producto != null) {
+            Long nuevaCantidad = producto.getCantidadProducto() - cantidadDisminuir;
+
             if (nuevaCantidad >= 0) {
                 producto.setCantidadProducto(nuevaCantidad);
                 return productoDao.save(producto);
             }
         }
-        return null;
-    }
 
-    @Override
-    @Transactional(readOnly = true)
-    public Producto findById(Long codigoProducto) {
-        return productoDao.findById(codigoProducto).orElse(null);
+        return null; // En caso de no encontrar el producto
     }
 
 }

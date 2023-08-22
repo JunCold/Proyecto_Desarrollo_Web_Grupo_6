@@ -24,19 +24,25 @@
                             <table id="datatablesSimple" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th style="width: 2%;">No.</th>
                                         <th style="width: 6%;">Código producto</th>
                                         <th style="width: 13%;">Nombre</th>
                                         <th style="width: 5%;">Cantidad</th>
-                                        <th style="width: 5%;">Acciones</th>
+                                        <th style="width: 10%;">Acciones</th>
+                                        <th style="width: 10%;">Nivel</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr th:each="producto, contador : ${productos}">
-                                        <td>[[${contador.count}]]</td>
                                         <td>[[${producto.codigoProducto}]]</td>
                                         <td>[[${producto.nombreProducto}]]</td>
                                         <td>[[${producto.cantidadProducto}]]</td>
+                                        <td>
+                                            <a th:href="@{/inventario/aumentar/{idProducto}(idProducto=${producto.codigoProducto})}" class="btn btn-success">Aumentar</a>
+                                            <a th:href="@{/inventario/disminuir/{idProducto}(idProducto=${producto.codigoProducto})}" class="btn btn-danger">Disminuir</a>
+                                        </td>
+                                        <td>
+                                            <span th:text="${producto.cantidadProducto &lt;= 50 ? 'Bajo' : (producto.cantidadProducto &lt; 100 ? 'Medio' : 'Alto')}"></span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -48,6 +54,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- 2 Sección para la busqueda por codigo -->
         <section th:fragment="busqueda" class="bg-light">
@@ -79,9 +86,11 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Código producto</th>
-                                    <th>Nombre</th>
-                                    <th>Cantidad</th>
+                                    <th style="width: 6%;">Código producto</th>
+                                    <th style="width: 13%;">Nombre</th>
+                                    <th style="width: 5%;">Cantidad</th>
+                                    <th style="width: 10%;">Acciones</th>
+                                    <th style="width: 10%;">Nivel</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,6 +98,13 @@
                                     <td th:text="${productoEncontrado.codigoProducto}"></td>
                                     <td th:text="${productoEncontrado.nombreProducto}"></td>
                                     <td th:text="${productoEncontrado.cantidadProducto}"></td>
+                                    <td>
+                                        <a th:href="@{/inventario/aumentar/{idProducto}(idProducto=${productoEncontrado.codigoProducto})}" class="btn btn-success">Aumentar</a>
+                                        <a th:href="@{/inventario/disminuir/{idProducto}(idProducto=${productoEncontrado.codigoProducto})}" class="btn btn-danger">Disminuir</a>
+                                    </td>
+                                    <td>
+                                        <span th:text="${productoEncontrado.cantidadProducto &lt;= 50 ? 'Bajo' : (productoEncontrado.cantidadProducto &lt; 100 ? 'Medio' : 'Alto')}"></span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -96,6 +112,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Sección para mostrar mensaje si el producto no fue encontrado -->
         <section th:fragment="productoNoEncontrado" th:if="${productoEncontrado == null}" class="bg-light">
             <div class="card mb-4" style="width: 80%;">

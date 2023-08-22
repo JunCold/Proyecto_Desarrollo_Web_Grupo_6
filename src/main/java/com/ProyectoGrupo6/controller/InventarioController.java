@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ProyectoGrupo6.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,29 +24,12 @@ public class InventarioController {
         model.addAttribute("productos", productos);
         return "/inventario/listado";
     }
-    
+
     @GetMapping("/listado2")
-    public String listado2(Model model){
+    public String listado2(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
-        return"/inventario/listado2";
-    }
-
-    @GetMapping("/aumentar/{idProducto}")
-    public String productoAumentar(Producto producto, Long cantidad, Model model) {
-
-        producto = productoService.aumentarProducto(producto.getCodigoProducto(), cantidad);
-        model.addAttribute("producto", producto);
-        model.addAttribute("cantidadAumentar", cantidad);
-        return "redirect:/inventario/listado";
-    }
-
-    @GetMapping("/disminuir/{idProducto}")
-    public String productoDisminuir(Producto producto, Long cantidad, Model model) {
-        producto = productoService.disminuirProducto(producto.getCodigoProducto(), cantidad);
-        model.addAttribute("cantidadDisminuir", cantidad);
-        model.addAttribute("producto", producto);
-        return "redirect:/inventario/listado";
+        return "/inventario/listado2";
     }
 
     @PostMapping("/query1")
@@ -55,4 +39,29 @@ public class InventarioController {
         return "/inventario/listado2";
     }
 
+    @GetMapping("/aumentar/{idProducto}")
+    public String mostrarFormularioAumentar(@PathVariable Long idProducto, Model model) {
+        Producto producto = productoService.findById(idProducto);
+        model.addAttribute("producto", producto);
+        return "/inventario/aumentar";
+    }
+
+    @GetMapping("/disminuir/{idProducto}")
+    public String mostrarFormularioDisminuir(@PathVariable Long idProducto, Model model) {
+        Producto producto = productoService.findById(idProducto);
+        model.addAttribute("producto", producto);
+        return "/inventario/disminuir";
+    }
+
+    @PostMapping("/aumentar/{idProducto}")
+    public String aumentarProducto(@PathVariable Long idProducto, @RequestParam Long cantidadAumentar) {
+        Producto producto = productoService.aumentarProducto(idProducto, cantidadAumentar);
+        return "redirect:/inventario/listado";
+    }
+
+    @PostMapping("/disminuir/{idProducto}")
+    public String disminuirProducto(@PathVariable Long idProducto, @RequestParam Long cantidadDisminuir) {
+        Producto producto = productoService.disminuirProducto(idProducto, cantidadDisminuir);
+        return "redirect:/inventario/listado";
+    }
 }
