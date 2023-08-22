@@ -74,7 +74,8 @@ public class ProyectConfig implements WebMvcConfigurer {
                         "/inventario/query1", "/cliente/eliminar/**", "/cliente/modificar/**", "/cliente/modifica",
                         "/cliente/guardar", "/layout/plantilla", "/cliente/eliminar/**", "/cliente/modificar/**",
                         "/cliente/modifica", "/cliente/guardar", "/inventario/listado2",
-                        "/inventario/aumentar", "/inventario/disminuir","/inventario/aumentar/**","/inventario/disminuir/**")
+                        "/inventario/aumentar", "/inventario/disminuir",
+                        "/inventario/aumentar/**","/inventario/disminuir/**","/categoria/modifica","/categoria/nuevo")
                 .permitAll()
                 )
                 .formLogin((form) -> form

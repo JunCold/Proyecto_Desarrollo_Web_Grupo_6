@@ -117,9 +117,7 @@
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
         <section th:fragment="editarCategoria">
-            <!--            <div class="row">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8">-->
+
             <div class="container py-4">
                 <div class="row justify-content-center"> <!-- Agregamos la clase "justify-content-center" para centrar el contenido -->
                     <div class="col-md-8">
@@ -127,53 +125,36 @@
                               th:action="@{/categoria/guardar}" 
                               th:object="${categoria}"
                               class="was-validated"                          
-                              enctype="multipart/form-data">
-                            <input type="hidden" name="codigoCategoria" th:field="*{codigoCategoria}"/>
-                            <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
+                              enctype="multipart/form-data"
+                              style="margin-left: 10px; margin-right: 10px;">
+                            <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
                             <section th:replace="~{categoria/fragmentos :: botonesEditar}"/>
-                            <div id=details>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h4>[[#{accion.actualizar}]]</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="mb-3">
-                                                        <label for="nombre">[[#{categoria.nombreCategoria}]]</label>
-                                                        <input type="text" class="form-control" 
-                                                               name="nombre" th:field="*{nombre}"
-                                                               required="true">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="cantidad">[[#{producto.cantidadProducto}]]</label>
-                                                        <input type="text" class="form-control" 
-                                                               name="cantidad" th:field="*{cantidad}"
-                                                               required="true">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="activo">[[#{categoria.activo}]]</label>
-                                                        <input class="form-check-input" 
-                                                               type="checkbox" 
-                                                               name="activo" 
-                                                               id="activo"
-                                                               th:field="*{activo}">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="imagen">[[#{categoria.rutaImagen}]]</label>
-                                                        <input class="form-control" type="file" name="imagenFile"
-                                                               onchange="readURL(this);" />
-                                                        <img id="blah" th:src="@{${categoria.rutaImagen}}" alt="your image" height="200"/>
-                                                    </div>-->
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Actualizar</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label for="nombreCategoria">Nombre</label>
+                                        <input type="text" class="form-control" name="nombreCategoria" th:field="*{nombreCategoria}" required="true"/>
+                                    </div>
+
+
+
+                                    <div class="mb-3">
+                                        <label for="activo">Activo</label>
+                                        <input class="form-check-input" 
+                                               type="checkbox" 
+                                               name="activo" 
+                                               th:field="*{activo}"
+                                               id="activo"/>
                                     </div>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
@@ -186,7 +167,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">                                
-                        <a th:href="@{/categoria/eliminar/}+${categoria.codigoCategoria}"
+                        <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
                            class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>
