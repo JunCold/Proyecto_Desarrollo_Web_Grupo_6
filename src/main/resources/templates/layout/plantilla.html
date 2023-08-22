@@ -83,6 +83,10 @@
                                                 <i class="fa-sharp fa-solid fa-table-list"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span></a>
                                         </li>
                                         <li>
+                                            <a th:href="@{/categoria/listado}" class= "nav-link px-0 align-middle text-white">
+                                                 <span class="ms-1 d-none d-sm-inline">Categoria</span></a>
+                                        </li>
+                                        <li>
                                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                                                 <i class="fa-regular fa-pump-soap"></i> <span class="ms-1 d-none d-sm-inline">Productos</span> </a>
                                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
@@ -141,52 +145,52 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-warning text-white mb-4">
-                                        <div class="card-body">Inventario</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-warning text-white mb-4">
-                                        <div class="card-body">Categoria</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-success text-white mb-4">
-                                        <div class="card-body">Ventas</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </main>
                             </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Inventario</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Categoria</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">Ventas</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            </main>
                         </div>
                     </div>
                 </div>
-                <footer th:fragment="footer" class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
+            </div>
+            <footer th:fragment="footer" class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Derechos Reservados 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
                         </div>
                     </div>
-                </footer>  
-            </div>
+                </div>
+            </footer>  
+        </div>
     </body>
 </html>
 
